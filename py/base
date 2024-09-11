@@ -1,0 +1,22 @@
+# random
+import random
+dice = [1,2,3,4,5,6]
+print(random.choice(dice))
+
+# random 2개 추출
+product = [ '정상품', '불량품', '정상품', '정상품', '정상품', '불량품' ]
+import numpy as np 
+a = np.random.choice(product, size=2, replace=False)  #비복원 추출
+print(a)
+
+# 가로로 출력
+for i in range(1,11):
+    print(i, end = ' ')
+
+# for loop ~ continue
+for i in range(1,11): 
+    if i == 5:
+        continue # 뒤 남은 코드 하지마라 ! 바로 올라가라 ! 
+    print(i)
+
+# for loop ~ break 
