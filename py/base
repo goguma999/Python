@@ -3,15 +3,18 @@ import random
 dice = [1,2,3,4,5,6]
 print(random.choice(dice))
 
+
 # random 2개 추출
 product = [ '정상품', '불량품', '정상품', '정상품', '정상품', '불량품' ]
 import numpy as np 
 a = np.random.choice(product, size=2, replace=False)  #비복원 추출
 print(a)
 
+
 # 가로로 출력
 for i in range(1,11):
     print(i, end = ' ')
+
 
 # for loop ~ continue
 for i in range(1,11): 
@@ -19,4 +22,75 @@ for i in range(1,11):
         continue # 뒤 남은 코드 하지마라 ! 바로 올라가라 ! 
     print(i)
 
+
 # for loop ~ break 
+for i in range(1,11):
+    if i == 5:
+        print('5를 만났습니다. 종료')
+        break 
+    print(i)
+
+
+# while loop
+x = 1
+while x < 11:
+    print(x, end=" ")
+    x = x + 1 
+
+
+# float 계산
+from decimal import Decimal
+result = Decimal('43.2')-Decimal('43.1')
+print(result)
+
+
+##문자열(Immutable)
+# count
+# find, index 
+a = '기상 후 1시간을 얼마나 의미 있게 보내느냐에 따라 그날 하루가 결정됩니다'
+a.find('의미')   #없으면 -1
+a.index('의미')  #없으면 에러
+
+
+# split, join
+b = '아무 것도 하지 않으면, 아무 일도 일어나지 않는다.'
+c = b.split()     
+d = ' '.join(c)   #c리스트의 요소들을 다시 문자열로 출력하는데 문자와 문자의 연결을 공백으로 하겠다. 
+
+
+# strip
+e = '보험 실효 개시일은, 보험 계약 이후 한달, 이후입니다. 한달! 입니다.'
+e2 = e.split()
+cnt = 0
+
+for i in e2:     
+    if i.strip(' 1234567890`''-=~!@#$%^&*()_+";:,.<>/?') in['한달', '효과']:
+        cnt += 1
+print(cnt)        
+
+
+# f문자열 포매팅
+f'{"hi":=^10}'    # '====hi====' : 가운데 정렬 & 공백채우기
+f'{"hi":!<10}'    # 'hi!!!!!!!!' : 왼쪽 정렬 & 공백채우기
+f'{y:0.4f}'       # '3.4213' : 소수점 4자리까지
+f'{y:10.4f}'      # '    3.4213' : 소수점 4자리까지 표현하고 총 자릿수를 10으로 맞춤
+
+
+# replace
+a = "Life is too short"
+a.replace("Life", "Your leg")
+
+
+##리스트
+# 
+
+
+
+
+
+
+
+
+
+
+
