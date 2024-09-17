@@ -154,8 +154,16 @@ while x < 11:
     x = x + 1 
 
 
+# kwargs 
+def print_kwargs(**kwargs):  #딕셔너리로 저장
+    print(kwargs)
+
+print_kwargs(name='foo', age=3)   #{'name':'foo','age':3} 
 
 
+# 파일 열고 자동으로 닫기 with 
+with open('c:\\data\\new.txt','w') as f:
+    f.write('Life is too short to worry about stupid things.') 
 
 
 
