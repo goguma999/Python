@@ -1,3 +1,26 @@
+# 1. check_even_odd : 짝수와 홀수 판정 함수
+# 2. check_number : 양수 음수 판정하는 함수
+# 3. wrap : 문자열을 특정 문자로 감싸는 함수
+# 4. plot_bar_graph : 막대 그래프 그리는 함수
+# 5. plot_pie_graph : 원형 그래프 그리는 함수
+# 6. hankook(키워드,페이지수) : 한국일보 데이터 수집
+# 7. dongah(키워드,페이지수) : 동아일보 데이터 수집
+# 8. ja(키워드,페이지수) : 중앙일보 데이터 수집
+# 9. han(키워드,페이지수) : 한겨례 데이터 수집
+# 10. km(키워드,페이지수) : 국민일보 데이터 수집
+# 11. chosun(키워드, 페이지수) : 조선일보 데이터 수집
+# 12. naver_blog2(키워드, 페이지수) : 네이버 블러그 데이터 수집
+# 13. naver_shopping(키워드, 페이지수) : 네이버 쇼핑 데이터 수집
+# 14. get_coupang_data(키워드, 페이지수) : 쿠팡 데이터 수집
+# 15. download_image_bing(kw) : 빙 이미지 수집, c://data_image_bing에 저장됨
+# 16. download_image_naver(kw) : 네이버 이미지 수집, c://data_image_naver에 저장됨
+# 17. download_image_google(kw) : 구글 이미지 수집, c://data_image_google에 저장됨
+# 18. download_image_daum(kw) : 구글 이미지 수집, c://data_image_daum에 저장됨
+# 19. scroll_youtube(kw) : 유튜브 댓글 수집, c://data에 저장됨
+# 20. relation_word_ja(kw) : 중앙일보 2024 언급량 시각화
+# 21. related_wordcloud(데이터 위치, keyword) : 연관어 분석 시각화
+
+
 #1. 짝수 홀수 판정 함수 
 def check_even_odd(number):
     if number % 2 == 1:
