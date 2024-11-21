@@ -7,7 +7,7 @@
 - 연관어 분석 시각화
 
 ### 시각화
-📌[graph.py](graph/graph.py)
-<img src="pie1.png" alt="pie1" width="400"/></br>
+📌[graph.py](graph/graph.py)</br>
+<img src="graph/pie1.png" alt="pie1" width="400"/></br>
 
 
