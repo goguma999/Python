@@ -6,8 +6,8 @@
 - 유튜브 댓글 수집
 - 연관어 분석 시각화
 
-### 시각화
+### 시각화 코드 
 📌[graph.py](graph/graph.py)</br>
-<img src="graph/pie1.png" alt="pie1" width="400"/></br>
+[pie1]<img src="graph/pie1.png" alt="pie1" width="400"/></br>
 
 
