@@ -9,7 +9,7 @@
 
 ### 📌시각화 코드 | [graph.py](graph/graph.py)</br> 
 <img src="graph/pie1.png" alt="pie1" width="300"/></br>
-<img src="graph/line_graph_objects.png" alt="line" width="300"/></br>
+<img src="graph/line_graph_objects.png" alt="line" width="400"/></br>
 
 
 
