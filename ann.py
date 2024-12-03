@@ -1,5 +1,5 @@
 # 1. check_even_odd : 짝수와 홀수 판정 함수
-# 2. check_number : 양수 음수 판정하는 함수
+# 2. analyze_sentiment : 감정 분석 함수
 # 3. wrap : 문자열을 특정 문자로 감싸는 함수
 # 4. plot_bar_graph : 막대 그래프 그리는 함수
 # 5. plot_pie_graph : 원형 그래프 그리는 함수
@@ -29,14 +29,16 @@ def check_even_odd(number):
         return '짝수입니다.'
 
 
-#2. 양수 음수 0 판정 함수
-def check_number(x):
-    if x < 0:
-        return '음수입니다.'
-    elif x > 0:
-        return '양수입니다.'
-    else:
-        return '0입니다.'
+#2. 감정 분석 함수 
+df = pd.DataFrame({'conversation':elsa_lines})
+def analyze_sentiment(text):
+    blob = TextBlob(text)      #TextBlob 객체를 생성 
+    score = blob.sentiment.polarity  #감정 점수 계산 
+    return score    
+    
+# 감정 분석 점수 컬럼 추가 
+df['sentiment'] = df['conversation'].map(analyze_sentiment)
+
 
 #3. (데이터 전처리1.) 문자열을 특정 문자로 감싸는 함수
 def wrap(text, char="'"):
@@ -1352,7 +1354,7 @@ m = """
 ann 모듈이 임폴트 되었습니다.
 함수 목록
 1. check_even_odd : 짝수와 홀수 판정 함수
-2. check_number : 양수 음수 판정하는 함수
+2. analyze_sentiment : 감정 분석 함수
 3. wrap : 문자열을 특정 문자로 감싸는 함수
 4. plot_bar_graph : 막대 그래프 그리는 함수
 5. plot_pie_graph : 원형 그래프 그리는 함수
