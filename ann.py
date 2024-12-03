@@ -30,14 +30,13 @@ def check_even_odd(number):
 
 
 #2. 감정 분석 함수 
-df = pd.DataFrame({'conversation':elsa_lines})
+#df = pd.DataFrame({'conversation':elsa_lines})
 def analyze_sentiment(text):
     blob = TextBlob(text)      #TextBlob 객체를 생성 
     score = blob.sentiment.polarity  #감정 점수 계산 
-    return score    
-    
+    return score       
 # 감정 분석 점수 컬럼 추가 
-df['sentiment'] = df['conversation'].map(analyze_sentiment)
+#df['sentiment'] = df['conversation'].map(analyze_sentiment)
 
 
 #3. (데이터 전처리1.) 문자열을 특정 문자로 감싸는 함수
