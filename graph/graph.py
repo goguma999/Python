@@ -1,4 +1,5 @@
-##### pie 
+
+##### 원형 그래프 코드
 import matplotlib.pyplot as plt 
 
 a = emp.groupby('job')['sal'].sum().reset_index()
@@ -11,24 +12,43 @@ plt.pie(a['sumsal'], labels=a['job'], autopct='%.1f%%', colors=colors, explode=[
 plt.show()
 
 
-##### line_express
+##### line_express 코드
 #x_data, y_data 리스트로 준비
 import plotly.express as px
 fig = px.line(x=x_data, y=y_data)
 fig.show()
 
 
-##### line_graph_objects
-#x_data, y_data 리스트로 준비
+
+##### 라인 그래프 함수
+#x, y 데이터 리스트로 준비 
 import plotly.graph_objects as go
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=x_data, y=y_data, mode='lines+markers', name='Sentiment'))
-fig.update_layout(
-    title="Sentiment Line Graph",
-    xaxis_title="Index",
-    yaxis_title="Sentiment",
-    template="plotly_white")
-fig.show()
+def plot_line_graph(x,y):
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers', name='Sentiment'))
+    fig.update_layout(
+        title="Sentiment Line Graph",
+        xaxis_title="Index",
+        yaxis_title="Sentiment",
+        template="plotly_white")
+    fig.show()
 
 
+
+##### 막대 그래프 함수 
+#x, y 데이터 리스트로 준비
+import plotly.graph_objects as go 
+
+def plot_bar_graph(x, y):
+    fig = go.Figure(data=[go.Bar(x=x, y=y)])
+    fig.update_layout(
+        title="막대 그래프 제목",
+        xaxis_title="X 축",
+        yaxis_title="Y 축",
+        template="plotly",   #다른 템플릿 ~ "plotly_dark", "ggplot2"
+        font = dict(
+                family="Arial, sans-serif",
+                size=14,
+                color="RebeccaPurple" ) )
+    fig.show()
 
