@@ -1,18 +1,5 @@
 
-##### 원형 그래프 코드(matplotlib)
-# import matplotlib.pyplot as plt 
-# a = emp.groupby('job')['sal'].sum().reset_index()
-# a.columns = ['job','sumsal']
-
-# colors = plt.cm.Pastel1([0, 1, 2, 3, 4])  # 5개의 색상 선택
-
-# plt.figure(figsize=(4,4))
-# plt.pie(a['sumsal'], labels=a['job'], autopct='%.1f%%', colors=colors, explode=[0.2, 0.02, 0.02, 0.02, 0.02])
-# plt.show()
-
-
-
-### 원형 그래프 함수(plotly)
+### pie1 원형 그래프 함수(plotly)
 #labels, values 리스트로 준비 
 import plotly.graph_objects as go 
 def plot_pie(labels, values): 
@@ -30,16 +17,21 @@ def plot_pie(labels, values):
 
 
 
+##### pie2 원형 그래프 코드(matplotlib)
+# import matplotlib.pyplot as plt 
 
-##### 라인 그래프 코드
-#x, y 리스트로 준비
-# import plotly.express as px
-# fig = px.line(x=x, y=y)
-# fig.show()
+# a = emp.groupby('job')['sal'].sum().reset_index()
+# a.columns = ['job','sumsal']
+
+# colors = plt.cm.Pastel1([0, 1, 2, 3, 4])  # 5개의 색상 선택
+
+# plt.figure(figsize=(4,4))
+# plt.pie(a['sumsal'], labels=a['job'], autopct='%.1f%%', colors=colors, explode=[0.2, 0.02, 0.02, 0.02, 0.02])
+# plt.show()
 
 
 
-##### 라인 그래프 함수
+##### line1 라인 그래프 함수
 #x, y 데이터 리스트로 준비 
 import plotly.graph_objects as go
 def plot_line(x,y):
@@ -54,9 +46,18 @@ def plot_line(x,y):
 
 
 
-##### 막대 그래프 함수 
+##### line2 라인 그래프 코드
+#x, y 리스트로 준비
+# import plotly.express as px
+# fig = px.line(x=x, y=y)
+# fig.show()
+
+
+
+##### bar1 막대 그래프 함수 
 #x, y 데이터 리스트로 준비
 import plotly.graph_objects as go 
+
 def plot_bar(x, y):
     fig = go.Figure(data=[go.Bar(x=x, y=y)])
     fig.update_layout(
