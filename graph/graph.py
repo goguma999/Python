@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 def plot_pie(labels, values): 
     fig = go.Figure(data=[go.Pie(labels=labels, values=values)])  
     fig.update_layout(
-        title="원형 그래프 제목",
+        #title="원형 그래프 제목",
         template="plotly",  
         font=dict(   
             family="Arial, sans-serif",
@@ -38,7 +38,7 @@ def plot_line(x,y):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers', name='Sentiment'))
     fig.update_layout(
-        title="Sentiment Line Graph",
+        #title="Sentiment Line Graph",
         xaxis_title="Index",
         yaxis_title="Sentiment",
         template="plotly_white")
@@ -61,7 +61,7 @@ import plotly.graph_objects as go
 def plot_bar(x, y):
     fig = go.Figure(data=[go.Bar(x=x, y=y)])
     fig.update_layout(
-        title="막대 그래프 제목",
+        #title="막대 그래프 제목",
         xaxis_title="X 축",
         yaxis_title="Y 축",
         template="plotly",   #다른 템플릿 ~ "plotly_dark", "ggplot2"
