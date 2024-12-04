@@ -7,7 +7,7 @@
 
 &nbsp;
 
-### 📌 시각화 코드 | [graph.py](graph/graph.py)</br> 
+### 📌 시각화 모듈 | [graph.py](graph/graph.py)</br> 
 <img src="graph/pie1.png" alt="pie1" width="450"/></br>
 <img src="graph/pie2.png" alt="pie2" width="300"/></br>
 <img src="graph/line1.png" alt="line1" width="400"/></br>
