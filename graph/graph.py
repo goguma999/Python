@@ -1,5 +1,5 @@
 
-##### 원형 그래프 코드
+##### 원형 그래프 코드(matplotlib)
 import matplotlib.pyplot as plt 
 
 a = emp.groupby('job')['sal'].sum().reset_index()
@@ -12,10 +12,30 @@ plt.pie(a['sumsal'], labels=a['job'], autopct='%.1f%%', colors=colors, explode=[
 plt.show()
 
 
-##### line_express 코드
-#x_data, y_data 리스트로 준비
+
+### 원형 그래프 함수(plotly)
+#labels, values 리스트로 준비 
+import plotly.graph_objects as go 
+def plot_pie(labels, values) 
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values)])  
+    fig.update_layout(
+        title="원형 그래프 제목",
+        template="plotly",  
+        font=dict(   
+            family="Arial, sans-serif",
+            size=14,
+            color="RebeccaPurple"
+        )
+    )
+    fig.show()
+
+
+
+
+##### 라인 그래프 코드
+#x, y 리스트로 준비
 import plotly.express as px
-fig = px.line(x=x_data, y=y_data)
+fig = px.line(x=x, y=y)
 fig.show()
 
 
@@ -23,7 +43,7 @@ fig.show()
 ##### 라인 그래프 함수
 #x, y 데이터 리스트로 준비 
 import plotly.graph_objects as go
-def plot_line_graph(x,y):
+def plot_line(x,y):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers', name='Sentiment'))
     fig.update_layout(
@@ -39,7 +59,7 @@ def plot_line_graph(x,y):
 #x, y 데이터 리스트로 준비
 import plotly.graph_objects as go 
 
-def plot_bar_graph(x, y):
+def plot_bar(x, y):
     fig = go.Figure(data=[go.Bar(x=x, y=y)])
     fig.update_layout(
         title="막대 그래프 제목",
@@ -51,4 +71,6 @@ def plot_bar_graph(x, y):
                 size=14,
                 color="RebeccaPurple" ) )
     fig.show()
+
+
 
