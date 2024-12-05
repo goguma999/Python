@@ -12,4 +12,7 @@
 <img src="graph/pie2.png" alt="pie2" width="300"/></br>
 <img src="graph/line1.png" alt="line1" width="400"/></br>
 <img src="graph/bar1.png" alt="bar1" width="400"/></br>
+<img src="graph/bar2.png" alt="bar2" width="400"/></br>
+
+
 
