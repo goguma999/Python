@@ -613,113 +613,113 @@ def naver_shopping(keyword, n):
             
 
 
-#14. 쿠팡
-import  requests    # 크롬 로봇 안쓰고 웹에 접근하는 모듈
-from  bs4  import BeautifulSoup
-import  pandas  as  pd
+# #14. 쿠팡
+# import  requests    # 크롬 로봇 안쓰고 웹에 접근하는 모듈
+# from  bs4  import BeautifulSoup
+# import  pandas  as  pd
 
-def get_coupang_data(keyword, pages):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
-        "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Referer": "https://www.coupang.com/"
-    }
-    list_name = []
-    list_price = [] 
-    list_review = []
-    list_star = [] 
-    list_ad = []
-    list_rank = []
-    list_url = []
+# def get_coupang_data(keyword, pages):
+#     headers = {
+#         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
+#         "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+#         "Referer": "https://www.coupang.com/"
+#     }
+#     list_name = []
+#     list_price = [] 
+#     list_review = []
+#     list_star = [] 
+#     list_ad = []
+#     list_rank = []
+#     list_url = []
 
-    for   page  in   range( 1, pages+1):
-        search_url = f"https://www.coupang.com/np/search?q={keyword}&channel=user&page={page}"
-        response = requests.get(search_url, headers=headers)
-        #print(response)  # <Response [200]> 이렇게 나오면 정상적으로 접근이 된것임
+#     for   page  in   range( 1, pages+1):
+#         search_url = f"https://www.coupang.com/np/search?q={keyword}&channel=user&page={page}"
+#         response = requests.get(search_url, headers=headers)
+#         #print(response)  # <Response [200]> 이렇게 나오면 정상적으로 접근이 된것임
 
-        if  response.status_code == 200:  # 사이트 접속이 정상이면 
-            soup = BeautifulSoup( response.text, 'html.parser')
-            goods_list = soup.select('ul.search-product-list > li')
-            #print(goods_list)
+#         if  response.status_code == 200:  # 사이트 접속이 정상이면 
+#             soup = BeautifulSoup( response.text, 'html.parser')
+#             goods_list = soup.select('ul.search-product-list > li')
+#             #print(goods_list)
 
-            for  item  in  goods_list:
-                #상품명 가져오기
-                item_name = item.select_one('div.name')
-                if item_name:
-                    list_name.append( item_name.text.strip() )
-                else:
-                    list_name.append('')
+#             for  item  in  goods_list:
+#                 #상품명 가져오기
+#                 item_name = item.select_one('div.name')
+#                 if item_name:
+#                     list_name.append( item_name.text.strip() )
+#                 else:
+#                     list_name.append('')
                     
-                #상품가격 가져오기 
-                item_price = item.select_one('strong.price-value')
-                if item_price:
-                    list_price.append( item_price.text.strip() )
-                else:
-                    list_price.append('')
+#                 #상품가격 가져오기 
+#                 item_price = item.select_one('strong.price-value')
+#                 if item_price:
+#                     list_price.append( item_price.text.strip() )
+#                 else:
+#                     list_price.append('')
 
-                #리뷰수 가져오기 
-                descriptions_inner=item.select_one('div.descriptions-inner') # 상품의 상세정보
-                if descriptions_inner and descriptions_inner.select_one('div.other-info'):  # 상세정보도 있고 기타 정보도 있으면                 
-                    item_review = descriptions_inner.select_one('span.rating-total-count')
-                    if item_review:
-                        list_review.append(item_review.text.strip('()')) 
-                    else:
-                        list_review.append('0')  # 리뷰수가 없으면 0 으로 넣어라 
-                else:
-                    list_review.append('0')   # 상품의 기타정보가 없으면 0으로 넣어라
+#                 #리뷰수 가져오기 
+#                 descriptions_inner=item.select_one('div.descriptions-inner') # 상품의 상세정보
+#                 if descriptions_inner and descriptions_inner.select_one('div.other-info'):  # 상세정보도 있고 기타 정보도 있으면                 
+#                     item_review = descriptions_inner.select_one('span.rating-total-count')
+#                     if item_review:
+#                         list_review.append(item_review.text.strip('()')) 
+#                     else:
+#                         list_review.append('0')  # 리뷰수가 없으면 0 으로 넣어라 
+#                 else:
+#                     list_review.append('0')   # 상품의 기타정보가 없으면 0으로 넣어라
 
-                #별점 가져오기 
-                descriptions_inner=item.select_one('div.descriptions-inner')
-                if descriptions_inner and descriptions_inner.select_one('div.other-info'):
-                    item_star = descriptions_inner.select_one('em.rating')
-                    if item_star:
-                        list_star.append(item_star.text.strip() )
-                    else:
-                        list_star.append('0')    # 별점이 없으면 0으로 넣어라 !
-                else:
-                    list_star.append('0')        # 상품의 기타정보가 없으면 0으로 넣어라 !
+#                 #별점 가져오기 
+#                 descriptions_inner=item.select_one('div.descriptions-inner')
+#                 if descriptions_inner and descriptions_inner.select_one('div.other-info'):
+#                     item_star = descriptions_inner.select_one('em.rating')
+#                     if item_star:
+#                         list_star.append(item_star.text.strip() )
+#                     else:
+#                         list_star.append('0')    # 별점이 없으면 0으로 넣어라 !
+#                 else:
+#                     list_star.append('0')        # 상품의 기타정보가 없으면 0으로 넣어라 !
                         
-                # 광고 상품 여부 가져오기 
-                descriptions_inner=item.select_one('div.descriptions-inner')
-                if descriptions_inner and descriptions_inner.select_one('div.other-info'):
-                    item_ad = descriptions_inner.select_one('span.ad-badge-text')
-                    if item_ad:
-                        list_ad.append('O' )
-                    else:
-                        list_ad.append('X')    # 광고가 아니면 0으로 넣어라 !
-                else:
-                    list_ad.append('X')        # 상품의 기타정보가 없으면 0으로 넣어라 !
+#                 # 광고 상품 여부 가져오기 
+#                 descriptions_inner=item.select_one('div.descriptions-inner')
+#                 if descriptions_inner and descriptions_inner.select_one('div.other-info'):
+#                     item_ad = descriptions_inner.select_one('span.ad-badge-text')
+#                     if item_ad:
+#                         list_ad.append('O' )
+#                     else:
+#                         list_ad.append('X')    # 광고가 아니면 0으로 넣어라 !
+#                 else:
+#                     list_ad.append('X')        # 상품의 기타정보가 없으면 0으로 넣어라 !
 
-                # 순위 가져오기 
-                item_rank = item.select_one('span[class^="number no-"]')  # 클래스 이름이 number no-로 시작하는 걸 찾아라
-                if item_rank:
-                    list_rank.append(item_rank.text.strip())
-                else:
-                    list_rank.append('')  # 순위가 업으면 NA로 넣어라
+#                 # 순위 가져오기 
+#                 item_rank = item.select_one('span[class^="number no-"]')  # 클래스 이름이 number no-로 시작하는 걸 찾아라
+#                 if item_rank:
+#                     list_rank.append(item_rank.text.strip())
+#                 else:
+#                     list_rank.append('')  # 순위가 업으면 NA로 넣어라
 
-                # 상품의 상세 url 가져오기
-                item_url = item.select_one('a.search-product-link') 
-                if item_url:
-                    list_url.append("https://www.coupang.com"+item_url['href'])
-                else:
-                    list_url.append('')         
+#                 # 상품의 상세 url 가져오기
+#                 item_url = item.select_one('a.search-product-link') 
+#                 if item_url:
+#                     list_url.append("https://www.coupang.com"+item_url['href'])
+#                 else:
+#                     list_url.append('')         
 
         
-        # 판다스 데이터 프레임 만들기
-        df = pd.DataFrame( {  '상품명' : list_name,
-                              '가격' :  list_price,
-                            '리뷰수' :  list_review,
-                            '별점'   :  list_star,
-                            '광고여부' : list_ad,
-                            '순위' : list_rank,
-                           '상세url':list_url } )
+#         # 판다스 데이터 프레임 만들기
+#         df = pd.DataFrame( {  '상품명' : list_name,
+#                               '가격' :  list_price,
+#                             '리뷰수' :  list_review,
+#                             '별점'   :  list_star,
+#                             '광고여부' : list_ad,
+#                             '순위' : list_rank,
+#                            '상세url':list_url } )
 
-    # df 데이터프레임의 결과를 csv 파일로 내립니다. 
-    df.to_csv("c:\\data\\coupang_shopping.csv", encoding="utf8", index=False)
-    print('성공적으로 c:\\data\\coupang_shopping.csv 가 저장되었습니다')
+#     # df 데이터프레임의 결과를 csv 파일로 내립니다. 
+#     df.to_csv("c:\\data\\coupang_shopping.csv", encoding="utf8", index=False)
+#     print('성공적으로 c:\\data\\coupang_shopping.csv 가 저장되었습니다')
         
 
-get_coupang_data('그릭 요거트', 1)
+# get_coupang_data('그릭 요거트', 1)
 
 
 
