@@ -95,13 +95,12 @@ def hankook_detail_url(keyword, num):
         
         for  i   in  soup.select( "div.inn > h3.board-list.h3.pc_only > a" ):
             params.append( i.get("href")  )
-        time.sleep(1)
-	    
+        time.sleep(1)  
     return  params
 
 # 기사 본문 수집 함수
 def hankook(keyword, num):
-    f_hankook = open("c:\\data\\hankook.txt", "w", encoding="utf8" )
+    f_hankook = open("/Users/ann/data/hankook.txt", "w", encoding="utf8" )
     result =  hankook_detail_url(keyword, num)
     for i  in result:
         url = urllib.request.Request( i )
@@ -131,38 +130,27 @@ from bs4  import BeautifulSoup
 import  time
 
 ## 상세 기사 url 수집함수
-
 def da_detail_url(keyword, num):
-    
     text1 = urllib.parse.quote(keyword)
-    
-    params = [ ]   # 비어있는 리스트를 생성합니다. 
-    
+    params = [ ]  
     for  i  in  range(1,num+10):
         list_url = "https://www.donga.com/news/search?"+ str(i)+"&query="+text1+"&check_news=91&sorting=1&search_date=1&v1=&v2=&more=1"
         url = urllib.request.Request( list_url )
         f = urllib.request.urlopen(url).read().decode("utf-8")
-    
         soup = BeautifulSoup(  f ,  "html.parser")
-        
         for  i   in  soup.select( "article > div > h4 > a" ):
-            params.append( i.get("href")  )
-            
+            params.append( i.get("href")  )  
         time.sleep(1)
-    
     return  params
 
 
 ## 기사 본문 수집 함수
 def da(keyword, num):
-    f_da = open("c:\\data\\da.txt", "w", encoding="utf8" )
-    
+    f_da = open("/Users/ann/data/da.txt", "w", encoding="utf8" )
     result =  da_detail_url(keyword, num)
-    
     for i  in result:
         url = urllib.request.Request( i )
         f = urllib.request.urlopen(url).read().decode("utf-8")
-        
         soup = BeautifulSoup( f , "html.parser") 
 
         # 날짜 가져오기
@@ -189,28 +177,21 @@ from bs4 import BeautifulSoup
 import time
 
 # 상세 기사 url 수집함수
-
 def ja_detail_url(keyword, num):
-    
     text1 = urllib.parse.quote(keyword)
-    
-    params = [ ]   # 비어있는 리스트를 생성합니다. 
-    
+    params = [ ]  
     for  i  in  range(1,num+1):
         list_url = "https://www.joongang.co.kr/search/news?keyword="+text1+"&page="+str(i)
         url = urllib.request.Request( list_url )
         f = urllib.request.urlopen(url).read().decode("utf-8")
-    
         soup = BeautifulSoup(  f ,  "html.parser")
-
+	    
         #container > section > div > section > ul > li:nth-child(1) > div > h2 > a
         for  i   in  soup.select( "div.card_body > h2.headline > a" ):
             params.append( i.get("href")  )
         if len(params) > 5:  #맨 끝에 5개의 기사를 제외시킵니다. 
             params = params[:-5]
-            
         time.sleep(1)
-    
     return  params
 
 
