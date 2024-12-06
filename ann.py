@@ -39,22 +39,15 @@ def analyze_sentiment(text):
 #df['sentiment'] = df['conversation'].map(analyze_sentiment)
 
 
-#3. (데이터 전처리1.) 문자열을 특정 문자로 감싸는 함수
+#3. 문자열을 특정 문자로 감싸는 함수
 def wrap(text, char="'"):
     return char+text+char
 
 
-#4. (데이터 시각화) 막대 그래프 그리는 함수
+#4. 막대 그래프 
 import plotly.graph_objects as go
-
 def plot_bar_graph(x, y):
-    """
-    x와 y 리스트를 받아 막대 그래프를 그리는 함수.
-    """
-    # 막대 그래프 생성
     fig = go.Figure(data=[go.Bar(x=x, y=y, marker_color="#FC9191")])
-
-# 레이아웃 설정
     fig.update_layout(
         title="막대 그래프 예시",
         xaxis_title="X 축",
@@ -66,33 +59,22 @@ def plot_bar_graph(x, y):
             color="RebeccaPurple"
     )
 )
-
-    # 그래프 표시
     fig.show()
 
 
-#5. (데이터 시각화) 원형 그래프 
-import plotly.graph_objects as go  #파이썬 plotly 라이브러리를 가져오는 코드 
-
-def plot_pie_chart(labels, values):  #원형 그래프 그리는 함수:함수(파이조각 이름, 파이조각 크기) 
-    """
-    labels와 values 리스트를 받아 원형 그래프를 그리는 함수.
-    """
-    # 원형 그래프 생성
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values)])  #원형 그래프 객체 생성 
-
-    # 레이아웃 설정
+#5. 원형 그래프 
+import plotly.graph_objects as go   
+def plot_pie_chart(labels, values):  
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values)]) 
     fig.update_layout(
         title="원형 그래프 예시",
         template="plotly",  # 다른 스타일 사용 가능: "plotly_dark", "ggplot2"
-        font=dict(    #그래프에서 사용되는 글꼴 스타일을 지정 
+        font=dict(    
             family="Arial, sans-serif",
             size=14,
             color="RebeccaPurple"
         )
     )
-
-    # 그래프 표시
     fig.show()
 
 
@@ -102,54 +84,44 @@ from bs4  import BeautifulSoup
 import  time
 
 # 상세 기사 url 수집함수
-
 def hankook_detail_url(keyword, num):
-    
     text1 = urllib.parse.quote(keyword)
-    
-    params = [ ]   # 비어있는 리스트를 생성합니다. 
-    
+    params = [ ]       
     for  i  in  range(1,num+1):
         list_url = "https://search.hankookilbo.com/Search?Page=" + str(i) + "&tab=NEWS&sort=relation&searchText=" + text1 + "&searchTypeSet=TITLE,CONTENTS&selectedPeriod=%EC%A0%84%EC%B2%B4&filter=head"
         url = urllib.request.Request( list_url )
         f = urllib.request.urlopen(url).read().decode("utf-8")
-    
         soup = BeautifulSoup(  f ,  "html.parser")
         
         for  i   in  soup.select( "div.inn > h3.board-list.h3.pc_only > a" ):
             params.append( i.get("href")  )
-            
         time.sleep(1)
-    
+	    
     return  params
 
 # 기사 본문 수집 함수
-
 def hankook(keyword, num):
     f_hankook = open("c:\\data\\hankook.txt", "w", encoding="utf8" )
-    
     result =  hankook_detail_url(keyword, num)
-    
     for i  in result:
         url = urllib.request.Request( i )
         f = urllib.request.urlopen(url).read().decode("utf-8")
-        
         soup = BeautifulSoup( f , "html.parser") 
 
         # 날짜 가져오기
         date_text = ""
         for  d  in  soup.select("div.innerwrap > div > div.info > dl"):
             date_text = d.text.strip()
-            f_hankook.write( date_text + '\n') # 날짜 저장
+            f_hankook.write( date_text + '\n') 
             print( d.text ) 
 
         # 본문 가져오기 
         for  i  in  soup.select("div.innerwrap div.col-main p"):  # div.innterwrap 밑에 p 테그들은 다 선택해라
-            article_text = i.text.strip()   # 본문 기사 양쪽에 공백을 잘라냄
-            f_hankook.write( article_text + '\n') # 본문기사 저장
+            article_text = i.text.strip()   
+            f_hankook.write( article_text + '\n') 
             print(article_text) 
 
-        f_hankook.write("\n" + "="*50 + "\n\n") # 기사 구분
+        f_hankook.write("\n" + "="*50 + "\n\n") 
 
     f_hankook.close()
 
