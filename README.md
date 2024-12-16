@@ -13,6 +13,5 @@
 <img src="graph/line1.png" alt="line1" width="400"/></br>
 <img src="graph/bar1.png" alt="bar1" width="400"/></br>
 <img src="graph/bar2.png" alt="bar2" width="400"/></br>
-
-
+<img src="graph/amountword1.png" alt="bar2" width="400"/></br>
 
