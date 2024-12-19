@@ -8,32 +8,39 @@
 &nbsp;
 
 ### 📌 시각화 모듈 | [graph.py](graph.py)</br> 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center;">
-  <div>
-    <img src="graph/pie1.png" alt="Pie Chart 1" width="250"/>
-    <p>Pie Chart 1</p>
-  </div>
-  <div>
-    <img src="graph/pie2.png" alt="Pie Chart 2" width="250"/>
-    <p>Pie Chart 2</p>
-  </div>
-  <div>
-    <img src="graph/line1.png" alt="Line Chart" width="250"/>
-    <p>Line Chart</p>
-  </div>
-  <div>
-    <img src="graph/bar1.png" alt="Bar Chart 1" width="250"/>
-    <p>Bar Chart 1</p>
-  </div>
-  <div>
-    <img src="graph/bar2.png" alt="Bar Chart 2" width="250"/>
-    <p>Bar Chart 2</p>
-  </div>
-  <div>
-    <img src="graph/amountword1.png" alt="Amount Word Cloud" width="250"/>
-    <p>Amount Word Cloud</p>
-  </div>
-</div>
+<table style="width: 100%; text-align: center; border-collapse: collapse;">
+  <tr>
+    <td style="padding: 10px;">
+      <img src="graph/pie1.png" alt="Pie Chart 1" width="250"/><br/>
+      <p>Pie Chart 1</p>
+    </td>
+    <td style="padding: 10px;">
+      <img src="graph/pie2.png" alt="Pie Chart 2" width="250"/><br/>
+      <p>Pie Chart 2</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px;">
+      <img src="graph/line1.png" alt="Line Chart" width="250"/><br/>
+      <p>Line Chart</p>
+    </td>
+    <td style="padding: 10px;">
+      <img src="graph/bar1.png" alt="Bar Chart 1" width="250"/><br/>
+      <p>Bar Chart 1</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px;">
+      <img src="graph/bar2.png" alt="Bar Chart 2" width="250"/><br/>
+      <p>Bar Chart 2</p>
+    </td>
+    <td style="padding: 10px;">
+      <img src="graph/amountword1.png" alt="Amount Word Cloud" width="250"/><br/>
+      <p>Amount Word Cloud</p>
+    </td>
+  </tr>
+</table>
+
 
 
 &nbsp;
