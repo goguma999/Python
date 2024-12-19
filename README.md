@@ -8,16 +8,39 @@
 &nbsp;
 
 ### 📌 시각화 모듈 | [graph.py](graph.py)</br> 
-<img src="graph/pie1.png" alt="pie1" width="450"/></br>
-<img src="graph/pie2.png" alt="pie2" width="300"/></br>
-<img src="graph/line1.png" alt="line1" width="400"/></br>
-<img src="graph/bar1.png" alt="bar1" width="400"/></br>
-<img src="graph/bar2.png" alt="bar2" width="400"/></br>
-<img src="graph/amountword1.png" alt="bar2" width="400"/></br>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center;">
+  <div>
+    <img src="graph/pie1.png" alt="Pie Chart 1" width="250"/>
+    <p>Pie Chart 1</p>
+  </div>
+  <div>
+    <img src="graph/pie2.png" alt="Pie Chart 2" width="250"/>
+    <p>Pie Chart 2</p>
+  </div>
+  <div>
+    <img src="graph/line1.png" alt="Line Chart" width="250"/>
+    <p>Line Chart</p>
+  </div>
+  <div>
+    <img src="graph/bar1.png" alt="Bar Chart 1" width="250"/>
+    <p>Bar Chart 1</p>
+  </div>
+  <div>
+    <img src="graph/bar2.png" alt="Bar Chart 2" width="250"/>
+    <p>Bar Chart 2</p>
+  </div>
+  <div>
+    <img src="graph/amountword1.png" alt="Amount Word Cloud" width="250"/>
+    <p>Amount Word Cloud</p>
+  </div>
+</div>
+
 
 &nbsp;
 
 ### 📌 python base | [base.py](base.py)</br> 
+- 파이썬 기초 문법 및 함수 
+- 교재: Do it! 점프 투 파이썬 
 
 &nbsp;
 
