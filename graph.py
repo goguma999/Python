@@ -86,7 +86,7 @@ def matplotlib_bar(x, y):
 
 
 
-##### amount_word 
+##### amount_word(kw, file_path)
 """
 텍스트 파일에서 키워드(kw)의 날짜별 언급량을 계산하고 시각화하는 함수
 :param kw: 검색할 키워드 (
@@ -156,6 +156,95 @@ def amount_word(kw, file_path):
 
 
 
+##### related_wordcloud(데이터위치, keyword) : 연관어 분석 시각화
+def related_wordcloud(location, keyword):
+    from collections import Counter  # 단어의 건수를 체크하기 위한 모듈
+    from  konlpy.tag  import  Okt    # 한글 형태소 분석 모듈
+    
+    # 분석할 데이터를 불러옵니다.
+    with  open(location, 'r', encoding='utf8') as f:
+        text = f.read()
+    
+    # 키워드(러닝)와 연관이 높은 단어 추출
+    related_words =[]
+    okt = Okt()   
+    for  sentence  in  text.split('.'):  # 문장단위로 분리
+         if  keyword  in  sentence:  # 키워드가 포함된 문장인 경우에만 단어 추출
+             nouns = okt.nouns(sentence)  # 문장에서 명사 추출 
+             for  i  in  nouns:
+                 if len(i) > 1 : # 철자가 1개보다 큰 명사이면
+                     related_words.append(i)
+    
+    #print(related_words) # 키워드 단어를 포함하는 문장에 들어간 단어들
+    
+    # related_words 에서 자주 나오는 단어들만 추출
+    if related_words:
+        top_words = Counter(related_words).most_common(100)  # 100개 이상 출현된 단어 추출
+        #print(top_words)
+    else:
+        print(f'{keyword}과 연관된 단어가 없습니다.')
+    
+    # top_words 리스트를 딕셔너리로 변환
+    dct = {'키워드' :[], 'cnt' :[] }
+    
+    for key, value  in top_words:
+        #print(key, value)
+        dct['키워드'].append(key)
+        dct['cnt'].append(value)
+
+    # 데이터 프레임으로 생성
+    import pandas  as  pd
+    df = pd.DataFrame(dct)
+    df.columns =['title','count']
+
+    # 워드 클라우드를 그리기 위해서 다시 딕셔너리 형태로 생성
+    wc = df.set_index('title').to_dict()['count']
+
+    # 키워드와 연관성이 높은 단어들중에서 빈도수 높은 단어만 빨간색, 나머지는 검정색
+    from wordcloud  import WordCloud
+    import  matplotlib.pyplot as plt
+    
+    # 사용자 정의 색상함수
+    def color_func(word, font_size, position, orientation, random_state=None, **kwargs):
+        if  word in top_10_words:
+            return  'red'  # 빈도수 상위 10개 단어를 빨간색으로
+        else:
+            return 'black'
+    
+    # 한글 안깨지게 하는 코드 
+    from matplotlib import font_manager, rc
+    font = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+    rc('font', family=font)
+    
+    wordCloud = WordCloud(
+    font_path = "c:/Windows/Fonts/malgun.ttf", # 폰트 지정
+    width = 1000, # 워드 클라우드의 너비 지정
+    height = 800, # 워드클라우드의 높이 지정
+    max_font_size=100, # 가장 빈도수가 높은 단어의 폰트 사이즈 지정
+    background_color = 'white' # 배경색 지정
+    ).generate_from_frequencies(wc) # 워드 클라우드 빈도수 지정
+    
+    top_10_words = {word for word, count in Counter(wc).most_common(10) }
+    
+    plt.imshow(wordCloud.recolor(color_func=color_func), interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
 
 
+
+# 메시지를 하나의 변수에 담기
+m = """
+graph 모듈이 임폴트 되었습니다.
+함수 목록
+1. pie1_plotly 
+2. pie2_matplotlib
+3. line1_plotly
+4. bar1_plotly
+5. bar2_matplotlib
+6. amount_word(kw, file_path)
+7. related_wordcloud(데이터위치, keyword) : 연관어 분석 시각화
+"""
+
+# 한 번에 출력
+print(m)
 
