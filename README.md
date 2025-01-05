@@ -3,7 +3,6 @@
 - 네이버 블로그, 네이버 쇼핑, 쿠팡
 - 구글, 네이버, 빙 이미지 수집
 - 유튜브 댓글 수집
-- 연관어 분석 시각화
 
 &nbsp;
 
@@ -39,7 +38,14 @@
       <p>Amount Word Cloud</p>
     </td>
   </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2">
+      <img src="graph/related_words1.png" alt="Related Words Word Cloud" width="250"/><br/>
+      <p>Related Words Word Cloud</p>
+    </td>
+  </tr>
 </table>
+
 
 
 
