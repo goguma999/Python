@@ -44,15 +44,12 @@
       <img src="graph/related_words1.png" alt="Related Words Word Cloud" width="250"/><br/>
       <p>Related Words Word Cloud</p>
     </td>
-  </tr>
-  <tr>
-    <td style="padding: 10px;" colspan="2">
-      <img src="graph/posnegwordcloud1.png" alt="PosNeg Word Cloud" width="250"/><br/>
+    <td style="padding: 10px;">
+      <img src="graph/posnegwordcloud1.png" alt="Pos/Neg Word Cloud" width="250"/><br/>
       <p>Pos/Neg Word Cloud</p>
     </td>
   </tr>
 </table>
-
 
 
 
