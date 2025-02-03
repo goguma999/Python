@@ -40,14 +40,28 @@
 &nbsp;
 
 ### 📌 텍스트마이닝 | [textmining.py](textmining.py)</br>
-- 언급량 분석
-<img src="graph/amountword1.png" alt="Amount Word Cloud" width="400"/>
-- 긍정/부정 감정 분석 및 시각화
-<img src="graph/posnegwordcloud1.png" alt="Pos/Neg Word Cloud" width="400"/>
-- 연관어 분석 및 시각화
-<img src="graph/related_words1.png" alt="Related Words Word Cloud" width="400"/>
+<table style="width: 100%; text-align: center; border-collapse: collapse;">
+  <tr>
+    <td style="padding: 10px;">
+      <img src="graph/amountword1.png" alt="Amount Word Cloud" width="250"/><br/>
+      <p>언급량 분석</p>
+    </td>
+    <td style="padding: 10px;">
+      <img src="graph/posnegwordcloud1.png" alt="Pos/Neg Word Cloud" width="250"/><br/>
+      <p>긍정/부정 감정 분석</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px;">
+      <img src="graph/related_words1.png" alt="Related Words Word Cloud" width="250"/><br/>
+      <p>연관어 분석</p>
+    </td>
+    <td style="padding: 10px;">
+    </td>
+  </tr>
+</table>
 
-
+&nbsp;
 
 ### 📌 python base | [base.py](base.py)</br> 
 - 파이썬 기초 문법 및 함수 
