@@ -46,7 +46,7 @@
     </td>
   </tr>
   <tr>
-    <td style="padding: 10px;" colspan="3">
+    <td style="padding: 10px;" colspan="2">
       <img src="graph/posnegwordcloud1.png" alt="PosNeg Word Cloud" width="250"/><br/>
       <p>Pos/Neg Word Cloud</p>
     </td>
