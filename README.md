@@ -7,6 +7,7 @@
 &nbsp;
 
 ### 📌 시각화 모듈 | [graph.py](graph.py)</br> 
+- plotly, matplotlib, konlpy, wordcloud 
 <table style="width: 100%; text-align: center; border-collapse: collapse;">
   <tr>
     <td style="padding: 10px;">
@@ -39,9 +40,15 @@
     </td>
   </tr>
   <tr>
-    <td style="padding: 10px;" colspan="2">
+    <td style="padding: 10px;">
       <img src="graph/related_words1.png" alt="Related Words Word Cloud" width="250"/><br/>
       <p>Related Words Word Cloud</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="3">
+      <img src="graph/posnegwordcloud1.png" alt="PosNeg Word Cloud" width="250"/><br/>
+      <p>Pos/Neg Word Cloud</p>
     </td>
   </tr>
 </table>
